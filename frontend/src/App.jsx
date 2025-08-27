@@ -1,15 +1,18 @@
+import Forks from "./components/Forks";
 import "./App.css";
-import Header from "./components/Header";
-import ContriList from "./components/ContriList";
-import Pfp from "/image.png";
+
+import { useState } from "react";
 
 function App() {
+  const [forks] = useState({ all_forks: [], num_of_forks: 0 });
+  const [owner] = useState("GollaBharath");
+  const [repo] = useState("Gamify");
+
   return (
-    <>
-      <Header />
-      <ContriList />
-      <img src={Pfp} alt="Profile" />
-    </>
+    <div className="container">
+      <div className="main-heading">GollaBharath/Gamify</div>
+      <Forks forks={forks} owner={owner} repo={repo} />
+    </div>
   );
 }
 

@@ -1,42 +1,81 @@
-#root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
-  text-align: center;
+body {
+  margin: 0;
+  font-family: "Segoe UI", Arial, sans-serif;
+  background: #f7f7f7;
 }
 
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  min-height: 100vh;
+  background: #f7f7f7;
 }
 
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.main-heading {
+  font-size: 2.2rem;
+  font-weight: 700;
+  margin-top: 48px;
+  margin-bottom: 12px;
+  color: #2d7cf2;
+  letter-spacing: 1px;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
-  }
+.forks-box {
+  background: #fff;
+  border-radius: 16px;
+  box-shadow: 0 4px 24px rgba(44, 62, 80, 0.08);
+  padding: 32px 40px;
+  min-width: 350px;
+  margin-top: 16px;
+  margin-bottom: 32px;
+  overflow: visible;
 }
 
-.card {
-  padding: 2em;
+.repo-title {
+  font-size: 1.3rem;
+  font-weight: 600;
+  margin-bottom: 8px;
+  color: #222;
 }
 
-.read-the-docs {
-  color: #888;
+.forks-count {
+  font-size: 2.2rem;
+  font-weight: 700;
+  color: #2d7cf2;
+  margin-bottom: 18px;
+}
+
+.forks-list-title {
+  font-size: 1.1rem;
+  font-weight: 500;
+  margin-bottom: 10px;
+  color: #555;
+}
+
+.forks-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  max-height: 350px;
+  overflow-y: auto;
+  scrollbar-width: none; /* Firefox */
+}
+.forks-list::-webkit-scrollbar {
+  display: none; /* Chrome, Safari */
+}
+
+.forks-list li {
+  padding: 8px 0;
+  border-bottom: 1px solid #eee;
+  font-size: 1.05rem;
+  color: #333;
+  transition: background 0.2s;
+}
+.forks-list li:last-child {
+  border-bottom: none;
+}
+.forks-list li:hover {
+  background: #f0f4ff;
 }

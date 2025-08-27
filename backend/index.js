@@ -2,18 +2,32 @@ import express from "express";
 import * as dotenv from "dotenv";
 dotenv.config();
 
+import forksRouter from "./routes/forks.js";
 import { Octokit } from "octokit";
 
-const octokit = new Octokit({ auth: process.env.Git_PAT });
-
 const app = express();
+app.use((req, res, next) => {
+  res.setHeader("Access-Control-Allow-Origin", "*");
+  next();
+});
+
 const port = process.env.PORT || 3000;
 
-// Compare: https://docs.github.com/en/rest/reference/users#get-the-authenticated-user
-const {
-  data: { login },
-} = await octokit.rest.users.getAuthenticated();
-console.log("Hello, %s", login);
+// Attach owner info to request for controller use
+app.use(async (req, res, next) => {
+  if (!req.owner) {
+    try {
+      const octokit = new Octokit({ auth: process.env.Git_PAT });
+      const data = await octokit.rest.users.getAuthenticated();
+      req.owner = data.data.login;
+    } catch (err) {
+      req.owner = undefined;
+    }
+  }
+  next();
+});
+
+app.use("/api/forks", forksRouter);
 
 app.get("/", (req, res) => {
   res.send("Hello World!");
