@@ -1,5 +1,5 @@
 import express from "express";
-import { getContributors, getForks } from "../controllers/ContriControllers.js";
+import { getContributors } from "../controllers/ContriControllers.js";
 
 const router = express.Router();
 

@@ -14,7 +14,7 @@ export async function getContributors(req, res) {
         headers: { "X-GitHub-Api-Version": "2022-11-28" },
       }
     );
-    const contributorsList = contributors.data.map((x) => x.full_name);
+    const contributorsList = contributors.data.map((x) => x.login);
     res.json({
       owner: owner,
       repo: repo,

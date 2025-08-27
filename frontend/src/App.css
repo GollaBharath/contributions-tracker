@@ -1,7 +1,61 @@
+.main-heading-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-top: 48px;
+  margin-bottom: 12px;
+}
+.edit-btn {
+  padding: 6px 14px;
+  font-size: 1rem;
+  border-radius: 6px;
+  border: none;
+  background: #2d7cf2;
+  color: #fff;
+  cursor: pointer;
+  font-weight: 500;
+  transition: background 0.2s;
+}
+.edit-btn:hover {
+  background: #1956a3;
+}
+.edit-form {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+.edit-input {
+  padding: 6px 10px;
+  font-size: 1rem;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+}
+.edit-submit {
+  padding: 6px 14px;
+  font-size: 1rem;
+  border-radius: 6px;
+  border: none;
+  background: #2d7cf2;
+  color: #fff;
+  cursor: pointer;
+  font-weight: 500;
+  transition: background 0.2s;
+}
+.edit-submit:hover {
+  background: #1956a3;
+}
+.blocks-row {
+  display: flex;
+  gap: 32px;
+  justify-content: center;
+  align-items: flex-start;
+  margin: 24px;
+}
 body {
   margin: 0;
   font-family: "Segoe UI", Arial, sans-serif;
   background: #f7f7f7;
+  color: #222;
 }
 
 .container {
@@ -11,6 +65,8 @@ body {
   align-items: center;
   min-height: 100vh;
   background: #f7f7f7;
+  width: 100vw;
+  box-sizing: border-box;
 }
 
 .main-heading {
@@ -62,6 +118,15 @@ body {
   overflow-y: auto;
   scrollbar-width: none; /* Firefox */
 }
+.forks-list a {
+  color: #222;
+  text-decoration: none;
+}
+.forks-list a:hover {
+  text-decoration: underline;
+  color: #2d7cf2;
+}
+
 .forks-list::-webkit-scrollbar {
   display: none; /* Chrome, Safari */
 }

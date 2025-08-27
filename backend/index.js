@@ -3,6 +3,8 @@ import * as dotenv from "dotenv";
 dotenv.config();
 
 import forksRouter from "./routes/forks.js";
+import contributorsRouter from "./routes/contributors.js";
+import starsRouter from "./routes/stars.js";
 import { Octokit } from "octokit";
 
 const app = express();
@@ -28,6 +30,8 @@ app.use(async (req, res, next) => {
 });
 
 app.use("/api/forks", forksRouter);
+app.use("/api/contributors", contributorsRouter);
+app.use("/api/stars", starsRouter);
 
 app.get("/", (req, res) => {
   res.send("Hello World!");

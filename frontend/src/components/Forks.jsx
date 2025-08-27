@@ -1,26 +1,20 @@
 import { useEffect, useState } from "react";
 
-export default function Forks() {
+export default function Forks({ owner, repo }) {
   const [forks, setForks] = useState({ all_forks: [], num_of_forks: 0 });
-  const [owner, setOwner] = useState("GollaBharath");
-  const [repo, setRepo] = useState("Gamify");
 
   useEffect(() => {
     async function getForks() {
       const response = await fetch(
-        `${import.meta.env.VITE_BACKEND_URL}/api/forks`
+        `${
+          import.meta.env.VITE_BACKEND_URL
+        }/api/forks?owner=${owner}&repo=${repo}`
       );
       const data = await response.json();
       setForks(data);
-      if (data.all_forks.length > 0) {
-        const ownerName = data.owner;
-        const repoName = data.repo;
-        setOwner(ownerName);
-        setRepo(repoName);
-      }
     }
     getForks();
-  }, []);
+  }, [owner, repo]);
 
   return (
     <div className="forks-box">
@@ -30,8 +24,8 @@ export default function Forks() {
       <div className="forks-count">{forks.num_of_forks}</div>
       <ul className="forks-list">
         {forks.all_forks.map((fork, key) => (
-          <a href={`https://github.com/${fork}`}>
-            <li key={key}>{fork}</li>
+          <a href={`https://github.com/${fork}`} key={key}>
+            <li>{fork}</li>
           </a>
         ))}
       </ul>
